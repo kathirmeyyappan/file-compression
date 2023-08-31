@@ -1,1 +1,2 @@
-mypy
+tkinter>=8.6.13
+mypy>=1.5.1
