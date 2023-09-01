@@ -8,13 +8,16 @@ import math
 from huffman_tree import HuffmanNode, make_huffman_tree, make_encoding_dict
 
 
-def create_compressed_file(srcfilepath: str) -> None:
+def compress_file(srcfilepath: str) -> str:
     """
     Creates compressed binary version of file and stores in 
     compressed_files folder.
 
     Args:
         srcfilepath (str): path to the file which is to be compressed
+    
+    Returns:
+        str: saved filepath
     """
     
     ### READING FILE AND CREATING HUFFMAN ENCODING INFO ###
@@ -63,6 +66,13 @@ def create_compressed_file(srcfilepath: str) -> None:
             text_data = ''
             for char in file_text:
                 text_data += encoding_dict[char]
+                if len(text_data) % 100000 == 0:
+                    # convert string bits to bytes and write to file
+                    binary_data_bytes = bytes(int(text_data[i:i+8], 2) \
+                        for i in range(0, len(text_data), 8))
+                    binary_file.write(binary_data_bytes)
+                    text_data = ''
+                    
             # Pad '0' bits to make text_data a multiple of 8
             dummy_bit_count = 8 - (len(text_data) % 8)
             text_data += '0' * dummy_bit_count
@@ -77,6 +87,8 @@ def create_compressed_file(srcfilepath: str) -> None:
             
             #adding section to denote number of dummy bits at end of text_data
             binary_file.write(str(dummy_bit_count).encode('utf-8'))
+    
+    return zip_filename
             
         
 if __name__ == "__main__":
@@ -91,4 +103,4 @@ if __name__ == "__main__":
     filepath = args.src_file.name
 
     # get compressed binary file
-    create_compressed_file(filepath)
+    compress_file(filepath)

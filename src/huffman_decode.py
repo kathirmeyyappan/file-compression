@@ -8,13 +8,16 @@ import math
 from huffman_tree import HuffmanNode, make_huffman_tree, make_encoding_dict
 
 
-def decompress_file(zipfilepath: str) -> None:
+def decompress_file(zipfilepath: str) -> str:
     """
     Decompresses zipfile by recreating the original file using info in the .bin
     file within the .zip.
 
     Args:
         zipfilepath (str): path to the zipfile which is to be decompressed
+        
+    Returns:
+        str: saved filepath
     """
     
     ### READING FILE AND RECONSTRUCTING HUFFMAN CODING INFO ###
@@ -82,7 +85,9 @@ def decompress_file(zipfilepath: str) -> None:
                 decompressed_file.write(txt)
                 txt = ''
         # final write to file
-        decompressed_file.write(txt)        
+        decompressed_file.write(txt)
+    
+    return f"decompressed_{og_filename}"    
 
 
 if __name__ == "__main__":
