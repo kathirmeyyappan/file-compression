@@ -1,8 +1,14 @@
 # huffman-file-compression
-Desktop application that employs lossless compression methods (Huffman coding!) to zip and unzip files with 100% accuracy.
+#### Desktop application that employs lossless compression methods (Huffman coding!) to zip and unzip files with 100% accuracy. 
+
+#### Supported filetypes: .txt, .csv, .html, .py, .js, .c, .giggitygiggity, etc. ANY text-based file!
 
 ## Demonstration
-Below is an example use of the tool. We compress [FILENAME] into [COMPRESSED_FILENAME], which is about [RATIO] the size ([COMPARE]). Then, we unzip [COMPRESSED_FILENAME] into [DECOMPRESSED_FILENAME], which is perfectly identical in size and contents to the original file.
+Below is an example use of the tool. We compress TESTFILE.giggitygiggity into compressed_TESTFILE.giggitygiggity.zip, which is about 1/93 the size  of the original (414 bytes vs 38.6 KB). Then, we unzip (using the decoding algorithm) compressed_TESTFILE.giggitygiggity.zip into decompressed_TESTFILE.giggitygiggity, which is perfectly identical in size and contents to the original file.
+
+<video width="320" height="240" controls>
+  <source src="" type="file_compression_examples/demo_video.mp4">
+</video>
 
 ## Methodology
 The idea behind lossless compression is that we can re-express data with less information without actually omitting any of it. Typically, in text-based files, one character (as long as it is a "common" enough character) is represented by 1 byte. Using Huffman coding, we can actually encode our data such that one character (on average) is less than a byte!
