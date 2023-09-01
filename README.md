@@ -1,7 +1,7 @@
 # Huffman File Compression Application
 #### Desktop application that employs lossless compression methods (Huffman coding!) to zip and unzip files with 100% accuracy. 
 
-#### Supported filetypes: .txt, .csv, .html, .py, .js, .c, .giggitygiggity, etc. ANY text-based file!
+#### Supported filetypes: .txt, .csv, .html, .py, .js, .c, .giggitygiggity, and basically ANY text-based file!
 
 ## Demonstration
 Below is an example use of the tool. We compress ```TESTFILE.giggitygiggity``` into a binary zip file called ```compressed_TESTFILE.giggitygiggity.zip```, <b>which is about 1/93 the size of the original</b> (414 bytes vs 38.6 KB). Then, we unzip (using the decoding algorithm) ```compressed_TESTFILE.giggitygiggity.zip``` into ```decompressed_TESTFILE.giggitygiggity```, which is perfectly identical in size and contents to the original file.
