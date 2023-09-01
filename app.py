@@ -2,9 +2,7 @@ import tkinter as tk
 from tkinter import filedialog
 import sys
 import os
-import time
 import shutil
-import threading
 
 # Determine the path of the script
 script_dir = os.path.dirname(os.path.abspath(__file__))
